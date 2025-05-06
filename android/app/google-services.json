@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "588930715186",
+    "project_id": "taskweb-30a13",
+    "storage_bucket": "taskweb-30a13.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:588930715186:android:e1b2523188e81dff87f62b",
+        "android_client_info": {
+          "package_name": "com.abdalluh.flutter_web_task"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAUPV1b8dFqRct83yctstpNHn5p8ka5XDk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
