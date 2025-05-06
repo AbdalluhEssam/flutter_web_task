@@ -1,19 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <!--
-    If you are serving your web app in a path other than the root, change the
-    href value below to reflect the base path you are serving from.
-
-    The path provided below has to start and end with a slash "/" in order for
-    it to work correctly.
-
-    For more details:
-    * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
-
-    This is a placeholder for base href that will be replaced by the value of
-    the `--base-href` argument provided to `flutter build`.
-  -->
   <base href="$FLUTTER_BASE_HREF">
 
   <meta charset="UTF-8">
@@ -29,10 +16,81 @@
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="favicon.png"/>
 
+  <!-- Google Fonts (Inter) -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+
   <title>flutter_web_task</title>
   <link rel="manifest" href="manifest.json">
+
+  <style>
+    body {
+      margin: 0;
+      background-color: #1C2526; /* Match AppColors.backgroundColor */
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: 'Inter', sans-serif;
+      color: #E0E0E0; /* Match AppColors.textColor */
+      overflow: hidden;
+    }
+    #loading {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    #loading img {
+      width: 100px; /* Adjust size as needed */
+      height: 100px;
+      margin-bottom: 20px;
+    }
+    #loading h1 {
+      font-size: 24px;
+      font-weight: 700;
+      margin: 0 0 20px 0;
+    }
+    .loader {
+      border: 8px solid #f3f3f3; /* Light border */
+      border-top: 8px solid #3498db; /* Blue spinner */
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      animation: spin 1.5s linear infinite;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    .footer {
+      position: absolute;
+      bottom: 16px; /* Match vertical padding: 16.h */
+      text-align: center;
+      color: #616161; /* Match Colors.grey[700] */
+      font-size: 12px; /* Match fontSize: 12.sp (approx) */
+      padding: 16px; /* Match padding: EdgeInsets.symmetric(vertical: 16.h, horizontal: 16.w) */
+      width: 100%;
+      box-sizing: border-box;
+    }
+  </style>
 </head>
 <body>
-  <script src="flutter_bootstrap.js" async></script>
+<div id="loading">
+  <img src="icons/Icon-192.png" alt="App Logo"> <!-- Replace with your logo -->
+  <h1>Welcome to My App</h1>
+  <div class="loader"></div>
+</div>
+<div class="footer">
+  © 2025 Abdalluh Essam. All rights reserved.
+</div>
+<script>
+  // Hide the loading div and footer when Flutter is ready
+  window.addEventListener('flutter-first-frame', function () {
+    document.getElementById('loading').style.display = 'none';
+    document.querySelector('.footer').style.display = 'none';
+  });
+</script>
+<script src="flutter_bootstrap.js" async></script>
 </body>
 </html>

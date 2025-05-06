@@ -1,12 +1,11 @@
-
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_web_task/ui/splash.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'firebase_options.dart';
 import 'core/config/app_colors.dart';
 import 'core/config/screenutil_init_wrapper.dart';
-import 'ui/items_page.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -18,6 +17,7 @@ void main() async {
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInitWrapper(
@@ -31,11 +31,9 @@ class MyApp extends StatelessWidget {
               bodyColor: AppColors.textColor,
               displayColor: AppColors.textColor,
             ),
-
           ),
-
         ),
-        home: const ItemsPage(),
+        home: const SplashScreen(), // Set SplashScreen as home
       ),
     );
   }
