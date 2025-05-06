@@ -30,8 +30,8 @@ class _ItemsPageState extends State<ItemsPage> {
             isMobile
                 ? 80.h
                 : isTablet
-                ? 100.h
-                : 120.h,
+                ? 90.h
+                : 100.h,
         bottom: PreferredSize(
           preferredSize: const Size.fromHeight(0),
           child: Container(height: 1.h, color: AppColors.grayColor),
@@ -47,14 +47,21 @@ class _ItemsPageState extends State<ItemsPage> {
             children: [
               Image.asset(
                 AppAssets.logo,
-                width: isMobile ? 60.w : 84.w,
+                height: isMobile ? 30.h : 40.h,
                 // height: 40.h,
                 fit: BoxFit.contain,
               ),
               if (!isMobile && !isTablet) ...[
                 const Spacer(),
                 ...tabs.map(
-                  (tab) => _navItem(tab, selected: selectedTab == tab),
+                  (tab) => SizedBox(
+                    height: isMobile
+                        ? 80.h
+                        : isTablet
+                        ? 90.h
+                        : 100.h,
+                    child: _navItem(tab, selected: selectedTab == tab),
+                  ),
                 ),
                 24.horizontalSpace,
               ],
@@ -78,8 +85,8 @@ class _ItemsPageState extends State<ItemsPage> {
                     ),
                   ),
                   12.horizontalSpace,
-                  const CircleAvatar(
-                    radius: 16,
+                   CircleAvatar(
+                    radius: 18.r,
                     backgroundImage: AssetImage(AppAssets.profile),
                   ),
                   if (!isMobile && !isTablet) ...[
@@ -89,7 +96,7 @@ class _ItemsPageState extends State<ItemsPage> {
                       style: TextStyle(color: Colors.white, fontSize: 14),
                     ),
                     4.horizontalSpace,
-                    const Icon(Icons.arrow_drop_down, color: Colors.white),
+                    const Icon(Icons.keyboard_arrow_down_rounded, color: Colors.white),
                   ],
                 ],
               ),
@@ -372,10 +379,11 @@ class _ItemsPageState extends State<ItemsPage> {
                       crossAxisCount: crossAxisCount,
                       mainAxisSpacing: 20.h,
                       crossAxisSpacing: 16.w,
-                      childAspectRatio: isMobile ? 1.05 : 0.8,
+                      childAspectRatio: isMobile ? 1.1 : 0.75,
                     ),
                     itemBuilder: (context, index) => const ItemCard(),
                   ),
+                  16.verticalSpace,
                 ],
               ),
             ),
@@ -397,6 +405,7 @@ class _ItemsPageState extends State<ItemsPage> {
         child: Column(
           mainAxisSize: MainAxisSize.min, // Prevent Column from taking full height
           children: [
+            Spacer(), // Push
             Text(
               label,
               style: TextStyle(
@@ -405,12 +414,12 @@ class _ItemsPageState extends State<ItemsPage> {
                 fontSize: 14.sp,
               ),
             ),
-            // Spacer(), // Push the underline to the bottom
+            Spacer(), // Push the underline to the bottom
             AnimatedContainer(
-              margin: EdgeInsets.only(top: 4.h),
+
               alignment: Alignment.bottomCenter,
               duration: const Duration(milliseconds: 400),
-              height: 3.h,
+              height: 4.h,
               width: selected ? label.length * 8.w : 0,
               decoration: BoxDecoration(
                 color: AppColors.primaryColor,

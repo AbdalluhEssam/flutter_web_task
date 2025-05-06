@@ -42,10 +42,10 @@ class _SplashScreenState extends State<SplashScreen> {
             // Add your logo or image
             Spacer(),
             Image.asset(AppAssets.logo,height: 100.sp), // Replace with your logo asset
-            SizedBox(height: 35.h),
+            SizedBox(height: 50.h),
 
             CircularProgressIndicator(
-              valueColor: AlwaysStoppedAnimation<Color>(AppColors.textColor),
+              valueColor: AlwaysStoppedAnimation<Color>(AppColors.primaryColor),
             ),
 
             Spacer(),
