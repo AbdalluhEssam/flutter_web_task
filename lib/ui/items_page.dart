@@ -395,17 +395,20 @@ class _ItemsPageState extends State<ItemsPage> {
       child: Padding(
         padding: EdgeInsets.symmetric(horizontal: 14.w),
         child: Column(
+          mainAxisSize: MainAxisSize.min, // Prevent Column from taking full height
           children: [
             Text(
               label,
               style: TextStyle(
                 color: selected ? Colors.white : Colors.grey,
-                fontWeight:selected? FontWeight.w600 : FontWeight.w400,
+                fontWeight: selected ? FontWeight.w600 : FontWeight.w400,
                 fontSize: 14.sp,
               ),
             ),
-            8.verticalSpace,
+            // Spacer(), // Push the underline to the bottom
             AnimatedContainer(
+              margin: EdgeInsets.only(top: 4.h),
+              alignment: Alignment.bottomCenter,
               duration: const Duration(milliseconds: 400),
               height: 3.h,
               width: selected ? label.length * 8.w : 0,

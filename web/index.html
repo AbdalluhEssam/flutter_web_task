@@ -40,24 +40,28 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
+      text-align: center;
     }
     #loading img {
-      width: 100px; /* Adjust size as needed */
-      height: 100px;
-      margin-bottom: 20px;
+      width: 15vw; /* Responsive: 15% of viewport width */
+      max-width: 150px; /* Cap at 150px */
+      min-width: 80px; /* Minimum size for small screens */
+      height: auto; /* Maintain aspect ratio */
+      margin-bottom: 24px;
     }
     #loading h1 {
-      font-size: 24px;
+      font-size: 28px; /* Slightly larger for better appearance */
       font-weight: 700;
-      margin: 0 0 20px 0;
+      margin: 0 0 24px 0;
+      letter-spacing: 0.5px;
     }
     .loader {
-      border: 8px solid #f3f3f3; /* Light border */
-      border-top: 8px solid #3498db; /* Blue spinner */
+      border: 6px solid #f3f3f3; /* Thinner border for elegance */
+      border-top: 6px solid #3498db; /* Blue spinner */
       border-radius: 50%;
-      width: 50px;
-      height: 50px;
-      animation: spin 1.5s linear infinite;
+      width: 40px; /* Smaller spinner */
+      height: 40px;
+      animation: spin 1.2s linear infinite;
     }
     @keyframes spin {
       0% { transform: rotate(0deg); }
@@ -65,19 +69,40 @@
     }
     .footer {
       position: absolute;
-      bottom: 16px; /* Match vertical padding: 16.h */
+      bottom: 16px;
       text-align: center;
       color: #616161; /* Match Colors.grey[700] */
-      font-size: 12px; /* Match fontSize: 12.sp (approx) */
-      padding: 16px; /* Match padding: EdgeInsets.symmetric(vertical: 16.h, horizontal: 16.w) */
+      font-size: 12px; /* Match 12.sp */
+      padding: 16px;
       width: 100%;
       box-sizing: border-box;
+      letter-spacing: 0.2px;
+    }
+    /* Responsive adjustments */
+    @media (max-width: 600px) {
+      #loading h1 {
+        font-size: 20px;
+      }
+      .loader {
+        width: 32px;
+        height: 32px;
+        border-width: 5px;
+      }
+      .footer {
+        font-size: 10px;
+        padding: 12px;
+      }
+    }
+    @media (max-height: 400px) {
+      .footer {
+        display: none; /* Hide footer on very short screens */
+      }
     }
   </style>
 </head>
 <body>
 <div id="loading">
-  <img src="icons/Icon-192.png" alt="App Logo"> <!-- Replace with your logo -->
+  <img src="icons/logo.png" alt="App Logo"> <!-- Replace with assets/logo.png -->
   <h1>Welcome to My App</h1>
   <div class="loader"></div>
 </div>
